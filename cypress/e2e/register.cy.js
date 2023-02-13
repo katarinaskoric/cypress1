@@ -1,22 +1,4 @@
-/// <reference types="Cypress" />
-
-const locators = require("../fixtures/locators.json");
-
-describe("Register test", () => {
- let userData ={
-  firstName : "Katarina",
-  lastName :"Skoric",
-  email: "rina.ns@hotmail.com",
-  password:"katarina27",
-  invalidEmail: "rina.ns@hotmail.com"
- };
-
- beforeEach("visit app and click on register link", () => {
-    cy.visit("/");
-    cy.get(locators.navbar.registerButton).click();
-    cy.url().should("contain", "/register");
-  });
-
+git 
   it("register without first name", () => {
     cy.get(locators.register.lastNameInput).type("userData.lastName");
     cy.get(locators.commonFormElements.emailInput).type("userData.email");
@@ -47,4 +29,3 @@ describe("Register test", () => {
     cy.get(locators.commonFormElements.submitButton).click();
     cy.url().should("contain", "/register");
   });
-});
